@@ -1,0 +1,11 @@
+pandoc: '2.5'
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  introduction-to-tokenizers: introduction-to-tokenizers.html
+  tif-and-tokenizers: tif-and-tokenizers.html
+last_built: 2021-07-14T20:55Z
+urls:
+  reference: https://docs.ropensci.org/tokenizers/reference
+  article: https://docs.ropensci.org/tokenizers/articles
+

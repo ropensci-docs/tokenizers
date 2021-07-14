@@ -1,0 +1,12 @@
+{
+  "commit": {
+    "commit": "c4bc05986b7c3f3a351d36d5dc50cf5422ffa77c",
+    "author": "Hideaki Hayashi <hihayash@gmail.com>",
+    "time": "2021-07-14 20:54:14",
+    "files": 2,
+    "merge": false,
+    "message": "Split into words in tokenize_tweets even when strip_punct is set to TRUE (#78)\n\n* tokenize_tweets: Always split into words\r\n\r\n* Preserve punctuations as part of tweets\r\n\r\n* Add test for tokenizing non-space-separated language\r\n\r\nFixes #68 "
+  },
+  "remote": "https://github.com/ropensci/tokenizers",
+  "pkg": "tokenizers"
+}
