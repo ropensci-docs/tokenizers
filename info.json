@@ -1,0 +1,12 @@
+{
+  "commit": {
+    "commit": "b80863d088d4b39695b602ca11e061ac34770ec7",
+    "author": "tcharlon <charlon@protonmail.com>",
+    "time": "2024-03-27 09:33:34",
+    "files": 8,
+    "merge": false,
+    "message": "new maintainer\n"
+  },
+  "repo": "https://github.com/ropensci/tokenizers",
+  "pkg": "tokenizers"
+}
