@@ -1,0 +1,90 @@
+# Word stem tokenizer
+
+This function turns its input into a character vector of word stems.
+This is just a wrapper around the
+[`wordStem`](https://rdrr.io/pkg/SnowballC/man/wordStem.html) function
+from the SnowballC package which does the heavy lifting, but this
+function provides a consistent interface with the rest of the tokenizers
+in this package. The input can be a character vector of any length, or a
+list of character vectors where each character vector in the list has a
+length of 1.
+
+## Usage
+
+``` r
+tokenize_word_stems(
+  x,
+  language = "english",
+  stopwords = NULL,
+  simplify = FALSE
+)
+```
+
+## Arguments
+
+- x:
+
+  A character vector or a list of character vectors to be tokenized. If
+  `x` is a character vector, it can be of any length, and each element
+  will be tokenized separately. If `x` is a list of character vectors,
+  where each element of the list should have a length of 1.
+
+- language:
+
+  The language to use for word stemming. This must be one of the
+  languages available in the SnowballC package. A list is provided by
+  [`getStemLanguages`](https://rdrr.io/pkg/SnowballC/man/getStemLanguages.html).
+
+- stopwords:
+
+  A character vector of stop words to be excluded
+
+- simplify:
+
+  `FALSE` by default so that a consistent value is returned regardless
+  of length of input. If `TRUE`, then an input with a single element
+  will return a character vector of tokens instead of a list.
+
+## Value
+
+A list of character vectors containing the tokens, with one element in
+the list for each element that was passed as input. If `simplify = TRUE`
+and only a single element was passed as input, then the output is a
+character vector of tokens.
+
+## Details
+
+This function will strip all white space and punctuation and make all
+word stems lowercase.
+
+## See also
+
+[`wordStem`](https://rdrr.io/pkg/SnowballC/man/wordStem.html)
+
+## Examples
+
+``` r
+song <-  paste0("How many roads must a man walk down\n",
+                "Before you call him a man?\n",
+                "How many seas must a white dove sail\n",
+                "Before she sleeps in the sand?\n",
+                "\n",
+                "How many times must the cannonballs fly\n",
+                "Before they're forever banned?\n",
+                "The answer, my friend, is blowin' in the wind.\n",
+                "The answer is blowin' in the wind.\n")
+
+tokenize_word_stems(song)
+#> [[1]]
+#>  [1] "how"       "mani"      "road"      "must"      "a"         "man"      
+#>  [7] "walk"      "down"      "befor"     "you"       "call"      "him"      
+#> [13] "a"         "man"       "how"       "mani"      "sea"       "must"     
+#> [19] "a"         "white"     "dove"      "sail"      "befor"     "she"      
+#> [25] "sleep"     "in"        "the"       "sand"      "how"       "mani"     
+#> [31] "time"      "must"      "the"       "cannonbal" "fli"       "befor"    
+#> [37] "they'r"    "forev"     "ban"       "the"       "answer"    "my"       
+#> [43] "friend"    "is"        "blowin"    "in"        "the"       "wind"     
+#> [49] "the"       "answer"    "is"        "blowin"    "in"        "the"      
+#> [55] "wind"     
+#> 
+```
